@@ -4,7 +4,6 @@ Hadoop integration for Django (through an Oozie REST API or local job execution)
 1. Install this django app as usual.
  
 2. Prepare several settings in your project settings.py.
-
 Here's an example:
 ```
 HADOOP_MAIN         = 'node'
