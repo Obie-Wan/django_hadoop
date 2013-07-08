@@ -16,11 +16,11 @@ JOB_MANAGER_CLASS   = 'monitoring_jobs.job_spawner.CustomJobManager'
 3. Override job manager with appropriate job runner and result parser realisations.
 Result parser could be subclassed from results.JobResultParser.
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
-
+Available base classes for job runners:
+'''
 RestJobRunner submits MR-jobs through an Oozie.
-
 LocalJobRunner submits MR-jobs locally through the pipe.
-
+'''
 Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. docs are coming soon.
