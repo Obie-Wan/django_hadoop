@@ -21,6 +21,7 @@ Available base classes for job runners:
 RestJobRunner submits MR-jobs through an Oozie.
 LocalJobRunner submits MR-jobs locally through the pipe.
 ```
+
 Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. docs are coming soon.
