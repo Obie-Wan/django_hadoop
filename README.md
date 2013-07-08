@@ -24,4 +24,5 @@ LocalJobRunner submits MR-jobs locally through the pipe.
 
 Tested with hadoop 0.20.2-cdh3u5.
 
-P.S. docs are coming soon.
+P.S. Docs are coming soon.
+P.P.S. There's a lot of things to do.
