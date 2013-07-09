@@ -1,6 +1,6 @@
 Hadoop integration for Django (through an Oozie REST API or local job execution).
 It's a refactored version of the previously removed django_oozie.
-# Installation:
+### Installation:
 1. Install this django app as usual.
  
 2. Prepare several settings in your project's settings.py.
