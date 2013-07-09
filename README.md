@@ -9,10 +9,17 @@ Here's an example:
 ```python
 HADOOP_MAIN         = 'node'
 NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
-OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 JOB_USER            = 'oozie'                                 # Hadoop user for jobs & HDFS stuff
-HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
+
+# oozie job runner specific settings
+OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
+HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
+
+# local job runner specific settings
+HADOOP_HOME         = '/usr/lib/hadoop-0.20'
+JOB_JAR_PATH        = '/home/%s/YourHadoopApp.jar'
+HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME, JOB_JAR_PATH)
 ```
 
 ### Usage:
