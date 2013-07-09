@@ -14,7 +14,8 @@ JOB_USER            = 'oozie'                                 # Hadoop user for 
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
 ```
-3. Override job manager with appropriate job runner and result parser realisations.
+### Usage:
+1. Override job manager with appropriate job runner and result parser realisations.
 Result parser could be subclassed from results.JobResultParser.
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
 Available base classes for job runners:
@@ -31,7 +32,12 @@ class CustomJobManager(JobManager):
     _job_runner = RestJobRunner            # default value
     _job_result_parser = CustomResulParser # your result parser implementation
 ```
-
+2. Use job model where you wish.
+```python
+        job = CustomJobManager.get_model().create()                          
+        rest_job_runner = CustomJobManager.get_runner()(job)
+        succeeded = rest_job_runner.run_job()
+```
 Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. Docs are coming soon.
