@@ -29,8 +29,6 @@ LocalJobRunner submits MR-jobs locally through the pipe.
 Example:
 ```python
 class CustomJobManager(JobManager):
-        """Job spawning.
-        """
         _job_model  = CustomJobModel           # optional
         _job_runner = RestJobRunner            # default value
         _job_result_parser = CustomResulParser # your result parser implementation
