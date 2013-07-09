@@ -75,10 +75,10 @@ VERY_LOW, LOW, NORMAL, HIGH, VERY_HIGH = JOB_PRIORITIES
 ###############################################################################
 
 from django_hadoop.job_spawner import JobManager
-from django_hadoop.utils import load_class
+from django_hadoop.utils import load_class, process_exception
 try:
-    JOB_MANAGER_CLASS = getattr(settings, 'JOB_MANAGER_CLASS')
-    JOB_MANAGER_CLASS = load_class(JOB_MANAGER_CLASS)
+    JOB_MANAGER_CLASS = getattr(settings, 'JOB_MANAGER_CLASS')    
 except AttributeError:
-    JOB_MANAGER_CLASS = JobManager
+    process_exception(MRJOB_LOGGER, message='Set JOB_MANAGER_CLASS in settings')
+JOB_MANAGER_CLASS = load_class(JOB_MANAGER_CLASS)
 
