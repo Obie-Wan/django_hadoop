@@ -17,8 +17,10 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subcl
 
 ### Usage:
 1. Override job manager with appropriate job runner and result parser realisations.
+```
 Result parser could be subclassed from results.JobResultParser.
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
+```
 Available base classes for job runners:
 ```
 RestJobRunner submits MR-jobs through an Oozie.
