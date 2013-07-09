@@ -41,7 +41,7 @@ class CustomJobManager(JobManager):
         succeeded = rest_job_runner.run_job()
 ```
 
-3. You can get job model, runner and result parser via class methods: 
+3. You can get job model, runner and result parser via JobManager class methods: 
  - get_model(), 
  - get_runner()
  - get_result_parser()
