@@ -64,7 +64,7 @@ class CustomJobManager(JobManager):
 
 ### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
-You can register your ModelAdmin, if you don't like this behaviour.
+You can register your own ModelAdmin, if you don't like this behaviour.
 
 ---
 
