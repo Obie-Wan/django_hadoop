@@ -41,7 +41,7 @@ class CustomJobManager(JobManager):
         succeeded = rest_job_runner.run_job()
 ```
 
-# Admin stuff:
+### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
 You can register your ModelAdmin, if you don't like this behaviour.
 
