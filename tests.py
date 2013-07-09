@@ -7,8 +7,7 @@ from django_hadoop.runner import LocalJobRunner, RestJobRunner
 from django_hadoop import RUNNING, COMPLETED, HADOOP_JOB_CMD, JOB_MANAGER_CLASS
 JOB_RUNNER_CLASS = JOB_MANAGER_CLASS.get_runner()
 
-
-@skipUnless(JOB_RUNNER_CLASS == LocalJobRunner, 
+@skipUnless(issubclass(JOB_RUNNER_CLASS, LocalJobRunner), 
             'skip if local runner is not used') 
 class LocalJobRunnerTest(TestCase):
     """Test Map-Reduce runner.
@@ -30,7 +29,7 @@ class LocalJobRunnerTest(TestCase):
         self.assertEquals(self._runner.run_job(), 0)
 
 
-@skipUnless(JOB_RUNNER_CLASS == RestJobRunner, 
+@skipUnless(issubclass(JOB_RUNNER_CLASS, RestJobRunner), 
             'skip if REST runner is not used')
 class RestJobRunnerTest(TestCase):
     """Test Map-Reduce runner.
