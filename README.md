@@ -1,4 +1,5 @@
 Hadoop integration for Django (through an Oozie REST API or local job execution).
+This code allows running MapReduce tasks from the Django views.
 It's a refactored version of the previously removed django_oozie.
 #### Installation:
 1. Install this django app as usual.
