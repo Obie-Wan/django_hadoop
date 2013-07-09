@@ -35,6 +35,7 @@ class CustomJobManager(JobManager):
 ```
 
 You can get job model, runner and result parser via class methods get_model(), get_runner(), get_result_parser().
+
 2. Use job model where you wish.
 ```python
         job = CustomJobManager.get_model().create()                          
