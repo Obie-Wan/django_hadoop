@@ -51,4 +51,4 @@ Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. Docs are coming soon.
 
-P.P.S. There's a lot of things to do.
+P.P.S. There's a lot of things to do. Just let me know, if you want some feature.
