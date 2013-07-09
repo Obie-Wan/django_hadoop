@@ -1,11 +1,11 @@
 Hadoop integration for Django (through an Oozie REST API or local job execution).
 It's a refactored version of the previously removed django_oozie.
-### Installation:
+#### Installation:
 1. Install this django app as usual.
  
 2. Prepare several settings in your project's settings.py.
 Here's an example:
-```
+```python
 HADOOP_MAIN         = 'node'
 NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
@@ -22,7 +22,7 @@ RestJobRunner submits MR-jobs through an Oozie.
 LocalJobRunner submits MR-jobs locally through the pipe.
 ```
 Example:
-```
+```python
 class CustomJobManager(JobManager):
     """Job spawning.
     """
