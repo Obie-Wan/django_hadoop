@@ -7,11 +7,11 @@ It's a refactored version of the previously removed django_oozie.
 Here's an example:
 ```
 HADOOP_MAIN         = 'node'
-NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN
-OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN
-JOB_USER            = 'oozie'
-HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER
-JOB_MANAGER_CLASS   = 'monitoring_jobs.job_spawner.CustomJobManager'
+NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
+OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
+JOB_USER            = 'oozie'                                 # Hadoop user for jobs & HDFS stuff
+HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
+JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
 ```
 3. Override job manager with appropriate job runner and result parser realisations.
 Result parser could be subclassed from results.JobResultParser.
@@ -20,6 +20,15 @@ Available base classes for job runners:
 ```
 RestJobRunner submits MR-jobs through an Oozie.
 LocalJobRunner submits MR-jobs locally through the pipe.
+```
+Example:
+```
+class CustomJobManager(JobManager):
+    """Job spawning.
+    """
+    _job_model  = CustomJobModel           # optional
+    _job_runner = RestJobRunner            # default value
+    _job_result_parser = CustomResulParser # your result parser implementation
 ```
 
 Tested with hadoop 0.20.2-cdh3u5.
