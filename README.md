@@ -20,7 +20,8 @@ Available base classes for job runners:
 ```
 RestJobRunner submits MR-jobs through an Oozie.
 LocalJobRunner submits MR-jobs locally through the pipe.
-```Example:
+```
+Example:
 ```python
 class CustomJobManager(JobManager):
     """Job spawning.
