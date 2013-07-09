@@ -41,6 +41,11 @@ class CustomJobManager(JobManager):
         succeeded = rest_job_runner.run_job()
 ```
 
+3. You can get job model, runner and result parser via class methods: 
+ - get_model(), 
+ - get_runner()
+ - get_result_parser()
+
 ### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
 You can register your ModelAdmin, if you don't like this behaviour.
