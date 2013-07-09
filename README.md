@@ -38,6 +38,7 @@ class CustomJobManager(JobManager):
         rest_job_runner = CustomJobManager.get_runner()(job)
         succeeded = rest_job_runner.run_job()
 ```
+
 Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. Docs are coming soon.
