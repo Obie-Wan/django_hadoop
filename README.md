@@ -44,7 +44,9 @@ class CustomJobManager(JobManager):
 ### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
 You can register your ModelAdmin, if you don't like this behaviour.
+
 ---
+
 Tested with hadoop 0.20.2-cdh3u5.
 
 P.S. Docs are coming soon.
