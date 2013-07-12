@@ -31,6 +31,8 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
                                                     JOB_JAR_PATH) 
 ```
 
+4. Install hadoop client for reading from HDFS.
+
 ### Usage:
 1. Override job manager with appropriate job runner and result parser realisations.
 ```
