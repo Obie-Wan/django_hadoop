@@ -70,7 +70,7 @@ You can register your own ModelAdmin, if you don't like this behaviour.
 
 ---
 
-Tested with hadoop 0.20.2-cdh3u5.
+Tested with hadoop 0.20.2-cdh3u5 and django 1.4.
 
 P.S. Docs are coming soon.
 
