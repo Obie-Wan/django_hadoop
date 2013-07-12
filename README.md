@@ -33,6 +33,9 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 
 4. Install hadoop client for reading from HDFS.
 
+5. Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
+
+
 ### Usage:
 1. Override job manager with appropriate job runner and result parser realisations.
 ```
