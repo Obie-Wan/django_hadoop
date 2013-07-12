@@ -1,0 +1,8 @@
+*.pyc
+*.sqlite
+*.egg
+*.egg-info/
+/build
+/dist
+local_settings.py
+/docs/_build
