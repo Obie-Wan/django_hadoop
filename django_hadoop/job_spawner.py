@@ -1,9 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 """Select and run jobs.
 """
 from os import fork
 
 from django_hadoop import (MRJOB_LOGGER,
-                           NEW, FAILED, RUNNING, COMPLETED, 
+                           NEW, FAILED, RUNNING, COMPLETED,
                            RESULT_PATH)
 from django_hadoop.models import CommonJob
 from django_hadoop.runner import RestJobRunner
@@ -11,12 +15,13 @@ from django_hadoop.results import DummyResultParser
 from django_hadoop.hdfs import ExternalCallHDFSOperations
 from django_hadoop.utils import process_exception
 
+
 class JobManager(object):
     """Job spawning.
     """
-    _job_runner        = RestJobRunner     # override with your custom runner
-    _job_model         = CommonJob         # override with your custom model
-    _job_result_parser = DummyResultParser # override with your custom parser
+    _job_runner = RestJobRunner  # override with your custom runner
+    _job_model = CommonJob  # override with your custom model
+    _job_result_parser = DummyResultParser  # override with your custom parser
 
     @classmethod
     def get_model(cls):
@@ -63,7 +68,7 @@ class JobManager(object):
                 except:
                     job.update_status(FAILED)
                     # re-raise for proper logging
-                    raise            
+                    raise
 
     def execute_forked_job(self, job):
         """Fork MR-task => wait for completion => process result.
@@ -71,7 +76,6 @@ class JobManager(object):
         try:
             if isinstance(job, int):
                 job = self._job_model.objects.get(pk=job)
-
             # 2DO: fuking optimize !!! -> glue parameters and jobs!
             # execute job and process results from HDFS
             self._job_runner(job).run_job()
@@ -84,11 +88,8 @@ class JobManager(object):
     def process_job_results(cls, job):
         """Job completed - parse results and write them to cache.
         """
-        job_result = ExternalCallHDFSOperations()\
-                     .read_file(RESULT_PATH % job.pk)
-
+        job_result = ExternalCallHDFSOperations().read_file(RESULT_PATH %
+                                                            job.pk)
         # skip empty job results
         if job_result.strip(' \n'):
             cls.get_result_parser()(job, job_result).parse_results()
-
-

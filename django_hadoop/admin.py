@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 from django.contrib.admin import site, ModelAdmin
 from django_hadoop import JOB_MANAGER_CLASS
 
 job_model_cls = JOB_MANAGER_CLASS.get_model()
+
 
 class ExposeAllFieldsMixin(object):
     """ModelAdmin mixin for auto-exposing model fields to admin.
@@ -17,8 +19,8 @@ class ExposeAllFieldsMixin(object):
     def get_fields(self):
         """Get all model field names, except id.
         """
-        return [n for n in self.model._meta.get_all_field_names() if n <> 'id']
-     
+        return [n for n in self.model._meta.get_all_field_names() if n != 'id']
+
     def get_supported_fields(self):
         """Get all model field names, applicable to list_display.
         """
@@ -29,10 +31,9 @@ class ExposeAllFieldsMixin(object):
 
 class JobAdmin(ExposeAllFieldsMixin, ModelAdmin):
     """Job management model admin.
-    """    
+    """
     model = job_model_cls
     list_filter = ('status', 'priority',)
     ordering = ['-start_date']
 
 site.register(job_model_cls, JobAdmin)
-

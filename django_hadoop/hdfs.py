@@ -1,6 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 from abc import ABCMeta, abstractmethod
 from subprocess import Popen, PIPE
 from django_hadoop import NAMENODE
+
 
 class BaseHDFSOperations(object):
     """Common HDFS operations interface.
@@ -18,8 +23,8 @@ class ExternalCallHDFSOperations(BaseHDFSOperations):
     _command = 'hadoop fs -cat'
 
     def _run_external(self, command):
-        pipe = Popen(command.split(), 
-                     stdout=PIPE, stderr=PIPE, 
+        pipe = Popen(command.split(),
+                     stdout=PIPE, stderr=PIPE,
                      bufsize=256*1024*1024)
         output, errors = pipe.communicate()
         if pipe.returncode:
@@ -27,8 +32,5 @@ class ExternalCallHDFSOperations(BaseHDFSOperations):
         else:
             return output.strip()
 
-    def read_file(self, path):        
+    def read_file(self, path):
         return self._run_external('%s %s%s' % (self._command, NAMENODE, path))
-
-
-
