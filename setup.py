@@ -11,4 +11,7 @@ setup(
     packages=[
         'django_hadoop',
     ],
+    version=u'0.1.0',
+    url=u'https://github.com/Obie-Wan/django_hadoop',
+    license='LICENSE',
 )
