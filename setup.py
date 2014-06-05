@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+from setuptools import setup, find_packages
 from distutils.core import setup
 
 setup(
@@ -14,4 +14,6 @@ setup(
     version=u'0.1.0',
     url=u'https://github.com/Obie-Wan/django_hadoop',
     license='LICENSE',
+    packages=find_packages(),
+    include_package_data=True,
 )
