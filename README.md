@@ -68,7 +68,7 @@ Job runner could be inherited from:
 
 Task state could be determined from JSON by getting task view. 
 To manually update task status, just call 'hadoop-notification-view' (pass hadoop_job_id and status GET variables).
-This view is called by an Oozie automatically upon status change.
+Upon status change, this view is called by an Oozie automatically.
 
 ### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
