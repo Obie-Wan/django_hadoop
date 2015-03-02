@@ -59,11 +59,11 @@ Job runner could be inherited from:
  - get_runner()
  - get_result_parser()
 
-### Examples
+### Example
 ```python
-        job = CustomJobManager.get_model().create()                          
-        rest_job_runner = CustomJobManager.get_runner()(job)
-        succeeded = rest_job_runner.run_job()
+        job = CustomJobManager.get_model().create()           # create model instance
+        rest_job_runner = CustomJobManager.get_runner()(job)  # create job runner instance
+        succeeded = rest_job_runner.run_job()                 # start a job
 ```
 
 ### Admin stuff:
