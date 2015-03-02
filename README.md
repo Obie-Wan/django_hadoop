@@ -32,14 +32,14 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 
 - Install hadoop client for reading from HDFS (required in both cases for reading job results).
 
-### Customization JobManager
+### JobManager customization
 
 JobManager customization could be made through inheritance:
 ```python
 class JobManager(object):
     _job_runner = RestJobRunner             # override with your custom runner
     _job_model = CommonJob                  # override with your custom model
-    _job_result_parser = DummyResultParser  # override with your custom parser (required)
+    _job_result_parser = DummyResultParser  # override with your custom result parser (required)
 ```
 
 - Processing results
@@ -49,6 +49,8 @@ Result parser could be subclassed from results.JobResultParser.
 class CustomJobManager(JobManager):
     _job_result_parser = CustomResulParser # your result parser implementation
 ```
+Implement parse_results method and do everything you wish with self._result_dict.
+
 - Changing runner behaviour
 
 Job runner could be inherited from:
