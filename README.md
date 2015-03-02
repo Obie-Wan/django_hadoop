@@ -11,9 +11,6 @@ NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
 JOB_USER            = 'oozie'                                 # Hadoop user for jobs & HDFS stuff
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
 ```
-Choose job runner and prepare several settings:
-**Oozie job runner submits MR-jobs through an Oozie.***
-**Local job runner  throu
 
 Oozie job runner (submits MR-jobs through an Oozie) settings:
 ```
