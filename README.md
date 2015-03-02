@@ -12,8 +12,7 @@ JOB_USER            = 'oozie'                                 # Hadoop user for 
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager subclass
 ```
 
-
-3. Choose job runner.
+- Choose job runner.
 Oozie job runner (submits MR-jobs through an Oozie) settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
@@ -71,6 +70,4 @@ You can register your own ModelAdmin, if you don't like this behaviour.
 
 Tested with hadoop 0.20.2-cdh3u5 and django 1.4.
 
-P.S. Docs are coming soon.
-
-P.P.S. There's a lot of things to do. Just let me know, if you want some feature.
+P.S. There's a lot of things to do. Just let me know, if you want some feature.
