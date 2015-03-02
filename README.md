@@ -27,7 +27,7 @@ b. Local job runner (submits MR-jobs locally through the pipe) settings:
 HADOOP_HOME         = '/usr/lib/hadoop-0.20'                  # path to Hadoop client home 
 JOB_JAR_PATH        = '/home/%s/YourHadoopApp.jar'            # path to jar on the local FS 
 HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command for running the job
-                                                    JOB_JAR_PATH) 
+                                                JOB_JAR_PATH) 
 ```
 
 - Install hadoop client for reading from HDFS (required in both cases for reading job results).
