@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 """
 MapReduce output processing logic.
 """
 from abc import ABCMeta, abstractmethod
+
 
 class JobResultParser(object):
     """Process job results, finish calculations and put them to cache.
@@ -17,10 +22,10 @@ class JobResultParser(object):
 
     def split_results(self, job_result):
         """Separate result keys from values and save to dict.
-           ACHTUNG! Sucks on a very big sets of data (just override this method)!
+        ACHTUNG! Sucks on a very big sets of data (just override this method)!
         """
         for line in job_result.split('\n'):
-            if line:        
+            if line:
                 (key, value) = line.strip().split()
                 self._result_dict[key] = value
 
@@ -36,4 +41,3 @@ class DummyResultParser(JobResultParser):
     """
     def parse_results(self):
         pass
-

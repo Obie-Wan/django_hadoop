@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 """Job status views.
 """
 from traceback import format_exc
@@ -7,14 +11,15 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.shortcuts import get_object_or_404
 
-from django_hadoop import (JOB_STATES, COMPLETED, FAILED, RUNNING, 
+from django_hadoop import (JOB_STATES, COMPLETED, FAILED, RUNNING,
                            MRJOB_LOGGER, JOB_MANAGER_CLASS)
 from django_hadoop.utils import process_exception
+
 
 class JobView(View):
     """Job status retrieval view.
 
-       Returns: 
+       Returns:
            status(HttpResponse) - job status value or "error".
     """
     def get(self, request, **kwargs):
@@ -25,7 +30,8 @@ class JobView(View):
             status = str(job.status)
         except:
             status = '"error"'
-        return HttpResponse(json_resp % status, content_type='application/json')
+        return HttpResponse(json_resp % status,
+                            content_type='application/json')
 
 
 class UpdateJobStateView(View):
@@ -44,7 +50,7 @@ class UpdateJobStateView(View):
         if status == RUNNING:
             return HttpResponse('Skip RUNNING state')
 
-        job = get_object_or_404(JOB_MANAGER_CLASS.get_model(), 
+        job = get_object_or_404(JOB_MANAGER_CLASS.get_model(),
                                 hadoop_job_id=self.kwargs['hadoop_job_id'])
         try:
             if status == COMPLETED:
@@ -57,4 +63,3 @@ class UpdateJobStateView(View):
         job.update_status(status)
         response['status'] = status
         return HttpResponse(dumps(response), content_type='application/json')
-

@@ -1,18 +1,22 @@
-#-*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 """Job manager models.
 """
 from django.db.models import Model, CharField, DateTimeField
-from django_hadoop import (NEW, FAILED, RUNNING, COMPLETED, NORMAL, 
+from django_hadoop import (NEW, FAILED, RUNNING, COMPLETED, NORMAL,
                            SUSPENDED, KILLED, JOB_PRIORITIES)
 from django_hadoop.utils import utc_now
+
 
 class BaseJob(Model):
     """Base Map-Reduce job class.
     """
     JOB_STATUS_CHOICES = (
-        (NEW,       u'Новая'), 
-        (RUNNING,   u'Запущена'), 
-        (FAILED,    u'Ошибка'), 
+        (NEW,       u'Новая'),
+        (RUNNING,   u'Запущена'),
+        (FAILED,    u'Ошибка'),
         (COMPLETED, u'Завершено'),
         (SUSPENDED, u'Приостановлено'),
         (KILLED,    u'Убито'),
@@ -20,11 +24,11 @@ class BaseJob(Model):
     JOB_PRIORITY_CHOICES = ((value, value) for value in JOB_PRIORITIES)
 
     hadoop_job_id = CharField(blank=True, null=True, max_length=36)
-    status        = CharField(default=NEW, choices=JOB_STATUS_CHOICES, 
-                              max_length=16)
-    priority      = CharField(default=NORMAL, choices=JOB_PRIORITY_CHOICES,
-                              max_length=16)
-    start_date    = DateTimeField(null=True, blank=True)
+    status = CharField(default=NEW, choices=JOB_STATUS_CHOICES,
+                       max_length=16)
+    priority = CharField(default=NORMAL, choices=JOB_PRIORITY_CHOICES,
+                         max_length=16)
+    start_date = DateTimeField(null=True, blank=True)
 
     def update_status(self, new_status):
         """Quick wrapper for updating job status.
@@ -53,4 +57,3 @@ class CommonJob(BaseJob):
     """Common job model.
     """
     pass
-
