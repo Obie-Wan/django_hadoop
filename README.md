@@ -1,7 +1,7 @@
 Hadoop integration for Django (through an Oozie REST API or local job execution).
 This code allows running MapReduce tasks from the Django views.
 
-#### Installation:
+### Installation
 - Install this django app as usual (urls.py, settings.py, etc.).
  
 - Prepare common Hadoop-related settings in your project's settings.py:
