@@ -2,9 +2,9 @@ Hadoop integration for Django (through an Oozie REST API or local job execution)
 This code allows running MapReduce tasks from the Django views.
 It's a refactored version of the previously removed django_oozie.
 #### Installation:
-1. Install this django app as usual (urls.py, settings.py, etc.).
+- Install this django app as usual (urls.py, settings.py, etc.).
  
-2. Prepare several settings in your project's settings.py:
+- Prepare several settings in your project's settings.py:
 ```python
 HADOOP_MAIN         = 'node'
 NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
@@ -26,12 +26,17 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
                                                     JOB_JAR_PATH) 
 ```
 
-4. Install hadoop client for reading from HDFS (required for reading job results).
+- Install hadoop client for reading from HDFS (required for reading job results).
 
-5. Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
+- Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
 
-
-### Usage:
+- Subclass JobManager
+```python
+class CustomJobManager(JobManager):
+        _job_result_parser = CustomResulParser # your result parser implementation
+```
+ 
+### JobManager customization:
 1. Override job manager with appropriate job runner and result parser realisations.
 ```
 Result parser could be subclassed from results.JobResultParser.
@@ -43,12 +48,6 @@ RestJobRunner implements Oozie job runner.
 LocalJobRunner implements local job runner.
 ```
 Example:
-```python
-class CustomJobManager(JobManager):
-        _job_model  = CustomJobModel           # optional
-        _job_runner = RestJobRunner            # default value
-        _job_result_parser = CustomResulParser # your result parser implementation
-```
 
 2. Use job model where you wish.
 ```python
