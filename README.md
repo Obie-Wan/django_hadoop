@@ -14,14 +14,15 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager 
 
 - Choose job runner
 
-- Oozie job runner (submits MR-jobs through an Oozie) settings:
+a. Oozie job runner (submits MR-jobs through an Oozie) settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
 ```
+
 Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
 
-Local job runner (submits MR-jobs locally through the pipe) settings:
+b. Local job runner (submits MR-jobs locally through the pipe) settings:
 ```
 HADOOP_HOME         = '/usr/lib/hadoop-0.20'                  # path to Hadoop client home 
 JOB_JAR_PATH        = '/home/%s/YourHadoopApp.jar'            # path to jar on the local FS 
@@ -33,7 +34,7 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 
 ### Customization JobManager
 
-JobManager customizations could be made through inheritance:
+JobManager customization could be made through inheritance:
 ```python
 class JobManager(object):
     _job_runner = RestJobRunner             # override with your custom runner
