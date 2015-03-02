@@ -74,7 +74,7 @@ Task state could be determined from JSON by getting task view.
 To manually update task status, just GET 'hadoop-notification-view' (pass hadoop_job_id and status variables).
 This view is called by an Oozie automatically upon status change.
 
-### Admin stuff:
+### Admin
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
 You can register your own ModelAdmin, if you don't like this behaviour.
 
