@@ -39,11 +39,12 @@ Result parser could be subclassed from results.JobResultParser.
 class CustomJobManager(JobManager):
     _job_result_parser = CustomResulParser # your result parser implementation
 ```
-- Override job manager with appropriate job runner.
+- Changing runner behaviour
+
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
 Available base classes for job runners:
-1. RestJobRunner implements Oozie job runner.
-2. LocalJobRunner implements local job runner.
+ 1. RestJobRunner implements Oozie job runner.
+ 2. LocalJobRunner implements local job runner.
 
 - Use job model where you wish.
 ```python
