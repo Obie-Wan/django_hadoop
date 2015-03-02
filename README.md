@@ -32,6 +32,15 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 - Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
 
 ### Customization JobManager
+
+JobManager customizations could be made through inheritance:
+```python
+class JobManager(object):
+    _job_runner = RestJobRunner             # override with your custom runner
+    _job_model = CommonJob                  # override with your custom model
+    _job_result_parser = DummyResultParser  # override with your custom parser (required)
+```
+
 - Processing results
 
 Result parser could be subclassed from results.JobResultParser.
@@ -41,22 +50,21 @@ class CustomJobManager(JobManager):
 ```
 - Changing runner behaviour
 
-Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
-Available base classes for job runners:
+Job runner could be inherited from:
  1. RestJobRunner implements Oozie job runner.
  2. LocalJobRunner implements local job runner.
-
-- Use job model where you wish.
-```python
-        job = CustomJobManager.get_model().create()                          
-        rest_job_runner = CustomJobManager.get_runner()(job)
-        succeeded = rest_job_runner.run_job()
-```
 
 - You can get job model, runner and result parser via JobManager class methods: 
  - get_model(), 
  - get_runner()
  - get_result_parser()
+
+### Examples
+```python
+        job = CustomJobManager.get_model().create()                          
+        rest_job_runner = CustomJobManager.get_runner()(job)
+        succeeded = rest_job_runner.run_job()
+```
 
 ### Admin stuff:
 All your model fields are exposed to admin with the help of ExposeAllFieldsMixin.
