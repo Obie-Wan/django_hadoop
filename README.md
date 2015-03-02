@@ -13,14 +13,14 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subcl
 ```
 Choose job runner and prepare several settings:
 **Oozie job runner submits MR-jobs through an Oozie.***
-**Local job runner submits MR-jobs locally through the pipe.***
+**Local job runner  throu
 
-Oozie job runner specific settings:
+Oozie job runner (submits MR-jobs through an Oozie) settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
 ```
-Local job runner specific settings:
+Local job runner (submits MR-jobs locally through the pipe) settings:
 ```
 HADOOP_HOME         = '/usr/lib/hadoop-0.20'                  # path to Hadoop client home 
 JOB_JAR_PATH        = '/home/%s/YourHadoopApp.jar'            # path to jar on the local FS 
@@ -28,9 +28,9 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
                                                     JOB_JAR_PATH) 
 ```
 
-4. Install hadoop client for reading from HDFS.
+3. Install hadoop client for reading from HDFS (required for reading job results).
 
-5. Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
+4. Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
 
 
 ### Usage:
