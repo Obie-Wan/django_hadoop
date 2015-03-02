@@ -4,19 +4,17 @@ It's a refactored version of the previously removed django_oozie.
 #### Installation:
 1. Install this django app as usual (urls.py, settings.py, etc.).
  
-2. Prepare several settings in your project's settings.py.
-Here's an example:
+2. Prepare several settings in your project's settings.py:
 ```python
 HADOOP_MAIN         = 'node'
 NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
 JOB_USER            = 'oozie'                                 # Hadoop user for jobs & HDFS stuff
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
 ```
-3. Choose and setup job runner.
-```
-Oozie job runner submits MR-jobs through an Oozie.
-Local job runner submits MR-jobs locally through the pipe.
-```
+Choose job runner and prepare several settings:
+**Oozie job runner submits MR-jobs through an Oozie.***
+**Local job runner submits MR-jobs locally through the pipe.***
+
 Oozie job runner specific settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
