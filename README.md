@@ -31,23 +31,19 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 
 - Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
 
-- Subclass JobManager
+### Customization JobManager
+- Processing results
+
+Result parser could be subclassed from results.JobResultParser.
 ```python
 class CustomJobManager(JobManager):
     _job_result_parser = CustomResulParser # your result parser implementation
 ```
- 
-### JobManager customization:
-- Override job manager with appropriate job runner and result parser realisations.
-```
-Result parser could be subclassed from results.JobResultParser.
+- Override job manager with appropriate job runner.
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
-```
 Available base classes for job runners:
-```
-RestJobRunner implements Oozie job runner.
-LocalJobRunner implements local job runner.
-```
+1. RestJobRunner implements Oozie job runner.
+2. LocalJobRunner implements local job runner.
 
 - Use job model where you wish.
 ```python
