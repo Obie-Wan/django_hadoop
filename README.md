@@ -34,7 +34,7 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 - Subclass JobManager
 ```python
 class CustomJobManager(JobManager):
-        _job_result_parser = CustomResulParser # your result parser implementation
+    _job_result_parser = CustomResulParser # your result parser implementation
 ```
  
 ### JobManager customization:
