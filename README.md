@@ -9,7 +9,7 @@ It's a refactored version of the previously removed django_oozie.
 HADOOP_MAIN         = 'node'
 NAMENODE            = 'hdfs://%s:8020' % HADOOP_MAIN          # Hadoop namenode
 JOB_USER            = 'oozie'                                 # Hadoop user for jobs & HDFS stuff
-JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # JobManager subclass
+JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager subclass
 ```
 
 Oozie job runner (submits MR-jobs through an Oozie) settings:
