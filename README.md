@@ -12,7 +12,8 @@ JOB_USER            = 'oozie'                                 # Hadoop user for 
 JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager subclass
 ```
 
-- Choose job runner.
+- Choose job runner
+
 Oozie job runner (submits MR-jobs through an Oozie) settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
@@ -37,7 +38,7 @@ class CustomJobManager(JobManager):
 ```
  
 ### JobManager customization:
-1. Override job manager with appropriate job runner and result parser realisations.
+- Override job manager with appropriate job runner and result parser realisations.
 ```
 Result parser could be subclassed from results.JobResultParser.
 Job runner could be subclassed from runner.RestJobRunner/runner.LocalJobRunner.
@@ -47,16 +48,15 @@ Available base classes for job runners:
 RestJobRunner implements Oozie job runner.
 LocalJobRunner implements local job runner.
 ```
-Example:
 
-2. Use job model where you wish.
+- Use job model where you wish.
 ```python
         job = CustomJobManager.get_model().create()                          
         rest_job_runner = CustomJobManager.get_runner()(job)
         succeeded = rest_job_runner.run_job()
 ```
 
-3. You can get job model, runner and result parser via JobManager class methods: 
+- You can get job model, runner and result parser via JobManager class methods: 
  - get_model(), 
  - get_runner()
  - get_result_parser()
