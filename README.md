@@ -57,17 +57,18 @@ Job runner could be inherited from:
  1. RestJobRunner implements Oozie job runner.
  2. LocalJobRunner implements local job runner.
 
-- You can get job model, runner and result parser via JobManager class methods: 
- - get_model(), 
- - get_runner()
- - get_result_parser()
-
 ### Example
 ```python
         job = CustomJobManager.get_model().create()           # create model instance
         rest_job_runner = CustomJobManager.get_runner()(job)  # create job runner instance
         succeeded = rest_job_runner.run_job()                 # start a job
 ```
+
+- You can get job model, runner and result parser via JobManager class methods: 
+ - get_model(), 
+ - get_runner()
+ - get_result_parser()
+
 
 Task state could be determined from JSON by getting task view. 
 To manually update task status, just call 'hadoop-notification-view' (pass hadoop_job_id and status GET variables).
