@@ -14,7 +14,7 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager 
 
 - Choose job runner
 
-a. Oozie job runner (submits MR-jobs through an Oozie) settings:
+a. Oozie job runner (submits MR-jobs through an Oozie) [RECOMMENDED] settings:
 ```
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
