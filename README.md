@@ -14,7 +14,7 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager 
 
 - Choose job runner
 
-a. Oozie job runner (submits MR-jobs through an Oozie) [RECOMMENDED] settings:
+**a.** Oozie job runner (submits MR-jobs through an Oozie) [RECOMMENDED] settings:
 ```python
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
@@ -24,7 +24,7 @@ Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using 
 Add a Site in django admin with available (to Oozie) ip/domain in the domain field, then
 setup SITE_ID in your project settings file.
 
-b. Local job runner (submits MR-jobs locally through the pipe) settings:
+**b.** Local job runner (submits MR-jobs locally through the pipe) settings:
 ```python
 HADOOP_HOME         = '/usr/lib/hadoop-0.20'                  # path to Hadoop client home 
 JOB_JAR_PATH        = '/home/%s/YourHadoopApp.jar'            # path to jar on the local FS 
