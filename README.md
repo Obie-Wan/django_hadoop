@@ -20,8 +20,8 @@ OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful se
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
 ```
 
-Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
-Add a Site in django admin with available (to Oozie) ip/domain in the domain field, then
+Put Oozie job configuration data to HDFS (*.jar, workflow.xml).
+Add a Site in django admin with reachable ip/domain (for Oozie) in the domain field, then
 setup SITE_ID in your project settings file.
 
 **b.** Local job runner (submits MR-jobs locally through the pipe) settings:
