@@ -3,6 +3,8 @@ This code allows running MapReduce tasks from the Django views.
 
 ### Installation
 - Install this django app as usual (urls.py, settings.py, etc.).
+- Add a Site in django admin with available ip/domain in the domain field, then
+setup SITE_ID in your project settings file
  
 - Prepare common Hadoop-related settings in your project's settings.py:
 ```python
