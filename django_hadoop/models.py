@@ -14,12 +14,12 @@ class BaseJob(Model):
     """Base Map-Reduce job class.
     """
     JOB_STATUS_CHOICES = (
-        (NEW,       u'Новая'),
-        (RUNNING,   u'Запущена'),
-        (FAILED,    u'Ошибка'),
-        (COMPLETED, u'Завершено'),
-        (SUSPENDED, u'Приостановлено'),
-        (KILLED,    u'Убито'),
+        (NEW,       NEW),
+        (RUNNING,   RUNNING),
+        (FAILED,    FAILED),
+        (COMPLETED, COMPLETED),
+        (SUSPENDED, SUSPENDED),
+        (KILLED,    KILLED),
     )
     JOB_PRIORITY_CHOICES = ((value, value) for value in JOB_PRIORITIES)
 
