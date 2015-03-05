@@ -3,8 +3,6 @@ This code allows running MapReduce tasks from the Django views.
 
 ### Installation
 - Install this django app as usual (urls.py, settings.py, etc.).
-- Add a Site in django admin with available ip/domain in the domain field, then
-setup SITE_ID in your project settings file
  
 - Prepare common Hadoop-related settings in your project's settings.py:
 ```python
@@ -23,6 +21,8 @@ HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie applicatio
 ```
 
 Put Oozie job configuration data to HDFS (*.jar, workflow.xml) if you are using OozieJobRunner (default).
+Add a Site in django admin with available (to Oozie) ip/domain in the domain field, then
+setup SITE_ID in your project settings file.
 
 b. Local job runner (submits MR-jobs locally through the pipe) settings:
 ```python
