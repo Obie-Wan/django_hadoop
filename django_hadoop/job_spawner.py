@@ -51,7 +51,7 @@ class JobManager(object):
         return self._job_model.objects.get(pk=job_pk)
 
     def process_jobs(self):
-        """Create jobs for parameters with level 0.
+        """Try to execute NEW and FAILED jobs.
         """
         new_jobs_qs = self._job_model.objects.filter(status__in=(NEW, FAILED))
         for job in new_jobs_qs:
