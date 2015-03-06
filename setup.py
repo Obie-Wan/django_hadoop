@@ -9,6 +9,9 @@ setup(
                  tasks and getting their results',
     version=u'0.1.0',
     url=u'https://github.com/Obie-Wan/django_hadoop',
+    install_requires=[
+        'pytz',
+    ],
     license='LICENSE',
     packages=find_packages(),
     include_package_data=True,
