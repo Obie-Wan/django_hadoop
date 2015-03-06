@@ -11,17 +11,12 @@ class ExposeAllFieldsMixin(object):
     """ModelAdmin mixin for auto-exposing model fields to admin.
     """
     def __init__(self, *args, **kwargs):
-        self.fields = self.get_fields()
-        self.list_display = self.get_supported_fields()
+        self.fields = [n for n in self.model._meta.get_all_field_names() if n != 'id']
+        self.list_display = self.get_listable_fields()
         self.list_display_links = self.list_display
         super(ExposeAllFieldsMixin, self).__init__(*args, **kwargs)
 
-    def get_fields(self):
-        """Get all model field names, except id.
-        """
-        return [n for n in self.model._meta.get_all_field_names() if n != 'id']
-
-    def get_supported_fields(self):
+    def get_listable_fields(self):
         """Get all model field names, applicable to list_display.
         """
         NOT_SUPPORTED = ('ManyToManyField',)
