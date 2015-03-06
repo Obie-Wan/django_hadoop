@@ -34,7 +34,7 @@ HADOOP_JOB_CMD      = '%s/bin/hadoop jar %s' % (HADOOP_HOME,  # Hadoop command f
 
 - Install hadoop client for reading from HDFS (required in both cases for reading job results).
 
-- Add crontab entry to run periodically ```python manage.py process_jobs```. This command will process all jobs from database.
+- Add crontab entry to run periodically ```python manage.py process_jobs```. This command should process all jobs from database.
 
 ### JobManager customization
 
