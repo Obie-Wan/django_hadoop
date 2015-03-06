@@ -18,6 +18,7 @@ JOB_MANAGER_CLASS   = 'your_app.your_module.CustomJobManager' # your JobManager 
 ```python
 OOZIE_SERVER        = 'http://%s:11000' % HADOOP_MAIN         # Oozie RESTful server
 HDFS_APP_DIR        = '/user/%s/your-app-in-hdfs' % JOB_USER  # Oozie application dir in HDFS
+HDFS_APP_NAME       = 'YourHadoopApp.jar'                     # Oozie workflow application name (in HDFS)
 ```
 
 Put Oozie job configuration data to HDFS (*.jar, workflow.xml).
