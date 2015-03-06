@@ -4,7 +4,7 @@
 
 """Select and run jobs.
 """
-from os import fork
+from os import fork, _exit
 
 from django_hadoop import (MRJOB_LOGGER,
                            NEW, FAILED, RUNNING, COMPLETED,
@@ -69,6 +69,8 @@ class JobManager(object):
                     job.update_status(FAILED)
                     # re-raise for proper logging
                     raise
+                finally:
+                    _exit(0)
 
     def execute_forked_job(self, job):
         """Fork MR-task => wait for completion => process result.
