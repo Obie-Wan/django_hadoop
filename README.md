@@ -85,6 +85,6 @@ You can register your own ModelAdmin, if you don't like this behaviour.
 
 ---
 
-Tested with hadoop 0.20.2-cdh3u5 and django 1.4.
+Tested with hadoop 0.20.2-cdh3u5 and django 1.4 (1.75).
 
 P.S. There's a lot of things to do. Just let me know, if you want some feature.
