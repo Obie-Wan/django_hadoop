@@ -20,6 +20,10 @@ class JobResultParser(object):
         self._job = job
         self.split_results(job_result)
 
+    @property
+    def results(self):
+        return self._result_dict
+
     def split_results(self, job_result):
         """Separate result keys from values and save to dict.
         ACHTUNG! Sucks on a very big sets of data (just override this method)!
